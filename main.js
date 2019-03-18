@@ -5,9 +5,9 @@ const FULL_HEART = '♥'
 const modal = document.getElementById('modal')
 const modalMessage = document.getElementById('modal-message')
 modal.classList.add('hidden')
+
 //find all hearts and add event listener to invoke mimicServercall
 const allHearts = document.querySelectorAll('.like-glyph')
-
 allHearts.forEach((heart) => heart.addEventListener('click',
 addNewLike))
 
@@ -22,6 +22,7 @@ function addNewLike(e){
     setTimeout(()=> {modal.classList.add('hidden')}, 5000)
   })
 }
+
 // toggles the heart class visibility
 function toggleHeart(e){
   if (e.target.textContent.includes(FULL_HEART)){
@@ -41,7 +42,7 @@ function toggleHeart(e){
 function mimicServerCall(url="http://mimicServer.example.com", config={}) {
   return new Promise(function(resolve, reject) {
     setTimeout(function() {
-      let isRandomFailure = Math.random() < .2
+      let isRandomFailure = Math.random() < .7
       if (isRandomFailure) {
         reject("Random server error. Try again.");
       } else {
